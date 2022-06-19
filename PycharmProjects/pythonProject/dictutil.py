@@ -142,37 +142,31 @@ def segment(pt1, pt2):
 
 
 
+def findTimings(strlist):
+    for n in range(8):
+        datapoint2number = list(strlist)[n].split()
+def pfilelist(a_file):
+    list_of_lists = []
+    listOfIts = []
+    listOftim = []
+    for line in a_file:
+        stripped_line = line.strip()
+        line_list = stripped_line.split()
+        list_of_lists.append(line_list)
+    for n in range(len(list_of_lists)):
+        nCount = int(list_of_lists[n][0])
+        listOfIts.append(nCount);
+        timeValue = float(list_of_lists[n][1])
+        listOftim.append(timeValue)
+    for n in range(len(list_of_lists)):
+        rightTuple = [(l, t) for l in listOfIts for t in listOftim for
+                      n in range(len(listOfIts)) if l == listOfIts[n] and t == listOftim[n]]
 
+    my_finallist = []
+    [my_finallist.append(n) for n in rightTuple if n not in my_finallist]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(' \n'.join(str(elt) + " " + "[" + k.__str__() + "]"
+                     for elt in my_finallist for k in range(20) if (k + 1) * 1000000 == elt[0] and my_finallist[k] == elt))
 
 
 
@@ -180,3 +174,6 @@ def segment(pt1, pt2):
 
 # PythonPractice
 # PythonPractice
+# f = open('JavaSortTymes.txt')
+# pfilelist(f)
+# a_file = f
