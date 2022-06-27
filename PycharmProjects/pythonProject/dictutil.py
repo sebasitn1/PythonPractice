@@ -215,7 +215,7 @@ def matrixL(rows, columns):
         matrix.append(localVals)
         localVals = " "
     for n in range(columns):
-        colParam = colParam + "c"
+        colParam = colParam + "r"
 
     latexRepresentation = "\left[\n" + "\\begin{array}{" + colParam + "}\n"
     for n in range(rows):
